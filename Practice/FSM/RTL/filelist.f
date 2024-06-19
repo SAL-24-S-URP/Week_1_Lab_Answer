@@ -1,0 +1,1 @@
+-sverilog $ROOT_PATH/RTL/FSM.sv

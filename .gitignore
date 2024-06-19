@@ -1,0 +1,5 @@
+*.txt
+*.vcd
+/Practice/FSM/SIM/OUTPUT
+/Practice/FIFO/SIM/OUTPUT
+
