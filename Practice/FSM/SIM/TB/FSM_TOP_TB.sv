@@ -1,3 +1,4 @@
+`define TIMEOUT_DELAY   500000
 module FSM_TOP_TB ();
     reg                     clk;
     reg                     rst_n;
@@ -17,7 +18,12 @@ module FSM_TOP_TB ();
         repeat (3) @(posedge clk);          // after 3 cycles,
         rst_n                   = 1'b1;     // release the reset
     end
-
+    
+    //timeout
+    initial begin
+        #`TIMEOUT_DELAY $display("Timeout!");
+        $finish;
+    end
 
     // enable waveform dump
     initial begin
