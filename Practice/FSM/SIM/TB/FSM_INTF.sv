@@ -11,6 +11,7 @@ interface FSM_INTF
     logic                       _repeat;
     logic                       _repeat_valid;
     logic                       ready;
+    logic                       run;
     logic                       done;
     
     semaphore                   sema;
