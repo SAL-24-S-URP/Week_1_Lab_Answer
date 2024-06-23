@@ -1,0 +1,2 @@
+$ROOT_PATH/SIM/TB/timescale.v
+$ROOT_PATH/SIM/TB/FIFO_TOP_TB.sv

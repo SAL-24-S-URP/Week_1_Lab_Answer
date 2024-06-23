@@ -3,7 +3,7 @@
 // Authors:
 // - Jungrea Kim <dale40@skku.edu>
 
-module CC_FIFO #(
+module FIFO #(
     parameter       FIFO_DEPTH          = 16,
     parameter       DATA_WIDTH          = 32,
     parameter       AFULL_THRESHOLD     = 16,
