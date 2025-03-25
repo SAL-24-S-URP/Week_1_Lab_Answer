@@ -20,46 +20,45 @@ module FSM
     output  wire                    done_o
 );
 
-    localparam  S_IDLE          = 3'b000;
-    localparam  S_CONF          = 3'b001;
-    localparam  S_RUN           = 3'b010;
-    localparam  S_DONE          = 3'b011;
-    localparam  S_ASK           = 3'b100;
+    localparam  S_IDLE              = 3'b000;
+    localparam  S_CONF              = 3'b001;
+    localparam  S_RUN               = 3'b010;
+    localparam  S_DONE              = 3'b011;
+    localparam  S_ASK               = 3'b100;
 
+    logic    [2:0]                  state, state_n;
+    logic    [3:0]                  cnt, cnt_n;
+    logic    [3:0]                  count, count_n;
 
-    reg     [2:0]               state,      state_n;
-    reg     [3:0]               cnt,        cnt_n;
-    reg     [3:0]               count,       count_n;
-
-    reg                         done;
-    reg                         run;
-    reg                         ready;
+    logic                           done;
+    logic                           run;
+    logic                           ready;
     
     always_ff @(posedge clk) begin
         if(!rst_n) begin
-            state               <= S_IDLE;
-            cnt                 <= 4'h0;
-            count               <= 4'h0;
+            state                   <= S_IDLE;
+            cnt                     <= 4'h0;
+            count                   <= 4'h0;
         end else begin
-            state               <= state_n;
-            cnt                 <= cnt_n;
-            count               <= count_n;
+            state                   <= state_n;
+            cnt                     <= cnt_n;
+            count                   <= count_n;
         end
     end
 
     always_comb begin
-        ready                   = 1'b0;
-        run                     = 1'b0;
-        done                    = 1'b0;
-        state_n                 = state;
-        cnt_n                   = cnt;
-        count_n                 = count;
+        ready                       = 1'b0;
+        run                         = 1'b0;
+        done                        = 1'b0;
+        state_n                     = state;
+        cnt_n                       = cnt;
+        count_n                     = count;
 
         case(state)
             S_IDLE: begin
-                ready           = 1'b1;
+                ready               = 1'b1;
                 if(start_i) begin
-                    state_n     = S_CONF; 
+                    state_n         = S_CONF; 
                 end
             end
             
